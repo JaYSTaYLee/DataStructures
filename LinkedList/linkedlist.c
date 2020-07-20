@@ -27,6 +27,27 @@ void Append_Node(Node* head, Node* node)
     (*temp).nodePtr = node;
 }
 
+void Reverse_List(Node* head)
+{
+    Node* previous = NULL;
+    Node* current = head;
+    Node* next = NULL;
+
+    while((*current).nodePtr != NULL)
+    {
+        next = (*current).nodePtr;
+        (*current).nodePtr = previous;
+        previous = current;
+        current = next;
+
+        if((*current).nodePtr == NULL)
+        {
+            (*current).nodePtr = previous;
+            break;
+        }
+    }
+}
+
 void Print_List(Node* head)
 {
     Node* currentNode = head;
